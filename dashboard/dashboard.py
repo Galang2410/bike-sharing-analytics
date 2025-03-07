@@ -5,8 +5,15 @@ import seaborn as sns
 import matplotlib.pyplot as plt
 
 # Memuat data
-df_hour = pd.read_csv('../data/hour.csv')
-df_day = pd.read_csv('../data/day.csv')
+try:
+    df_hour = pd.read_csv('../data/hour.csv')
+    df_day = pd.read_csv('../data/day.csv')
+    print("Data berhasil dimuat dari 'hour.csv' dan 'day.csv'.")
+except FileNotFoundError:
+    print("'hour.csv' atau 'day.csv' tidak ditemukan, mencoba memuat 'main_data.csv'.")
+    # Jika file tidak ditemukan, mencoba memuat main_data.csv
+    df_hour = pd.read_csv('../data/main_data.csv')
+    df_day = pd.read_csv('../data/main_data.csv')
 
 # Fungsi untuk analisis kepadatan penyewaan sepeda per jam
 def check_density(hour):
