@@ -12,8 +12,8 @@ try:
 except FileNotFoundError:
     print("'hour.csv' atau 'day.csv' tidak ditemukan, mencoba memuat 'main_data.csv'.")
     # Jika file tidak ditemukan, mencoba memuat main_data.csv
-    df_hour = pd.read_csv('main_data.csv')
-    df_day = pd.read_csv('main_data.csv')
+    df_hour = pd.read_csv('data/hour.csv')
+    df_day = pd.read_csv('data/day.csv')
 
 # Fungsi untuk analisis kepadatan penyewaan sepeda per jam
 def check_density(hour):
