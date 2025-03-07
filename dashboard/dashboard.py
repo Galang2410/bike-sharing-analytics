@@ -90,33 +90,37 @@ sns.heatmap(correlation_day, annot=True, cmap='coolwarm', fmt='.2f', linewidths=
 plt.title('Heatmap Korelasi antara Penyewaan Sepeda dan Faktor Lain')
 st.pyplot(plt)
 
-# 2. Bagaimana Suhu dan Kelembaban Mempengaruhi Penyewaan Sepeda per Jam?
-st.header('2. Bagaimana Suhu dan Kelembaban Mempengaruhi Penyewaan Sepeda per Jam?')
+# Visualisasi Pengaruh Suhu dan Kelembaban dengan Line Chart
+st.header("2. Bagaimana Suhu dan Kelembaban Mempengaruhi Penyewaan Sepeda per Jam?")
 
-# Pengaruh Suhu
-plt.figure(figsize=(8, 6))
-sns.scatterplot(x='temp', y='cnt', data=df_hour, color='blue')
+# Pengaruh Suhu terhadap penyewaan sepeda
+plt.figure(figsize=(10, 6))
+sns.lineplot(x='temp', y='cnt', data=df_hour, color='blue')
 plt.title('Pengaruh Suhu terhadap Penyewaan Sepeda per Jam')
 plt.xlabel('Suhu (Normalized)')
 plt.ylabel('Jumlah Penyewaan Sepeda per Jam')
 st.pyplot(plt)
 
-# Pengaruh Kelembaban
-plt.figure(figsize=(8, 6))
-sns.scatterplot(x='hum', y='cnt', data=df_hour, color='green')
+# Pengaruh Kelembaban terhadap penyewaan sepeda
+plt.figure(figsize=(10, 6))
+sns.lineplot(x='hum', y='cnt', data=df_hour, color='green')
 plt.title('Pengaruh Kelembaban terhadap Penyewaan Sepeda per Jam')
 plt.xlabel('Kelembaban (Normalized)')
 plt.ylabel('Jumlah Penyewaan Sepeda per Jam')
 st.pyplot(plt)
 
-# 3. Apakah Cuaca Mempengaruhi Penyewaan Sepeda?
+
+# Visualisasi Pengaruh Cuaca dengan Bar Chart
 st.header('3. Apakah Cuaca Mempengaruhi Penyewaan Sepeda?')
 
-# Pengaruh Cuaca
-plt.figure(figsize=(8, 6))
-sns.boxplot(x='weathersit', y='cnt', data=df_day, palette='Set2')
+# Pengaruh Cuaca terhadap Penyewaan Sepeda per Hari
+plt.figure(figsize=(10, 6))
+sns.barplot(x='weathersit', y='cnt', data=df_day, palette='Set2')
 plt.title('Pengaruh Cuaca terhadap Penyewaan Sepeda per Hari')
 plt.xlabel('Cuaca')
 plt.ylabel('Jumlah Penyewaan Sepeda per Hari')
 plt.xticks([0, 1, 2, 3], ['Cuaca Cerah', 'Berawan', 'Hujan Ringan', 'Hujan Berat'], rotation=0)
 st.pyplot(plt)
+# Menampilkan grafik di Jupyter
+plt.show()
+
